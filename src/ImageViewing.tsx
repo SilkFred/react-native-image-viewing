@@ -42,6 +42,8 @@ type Props = {
   delayLongPress?: number;
   HeaderComponent?: ComponentType<{ imageIndex: number }>;
   FooterComponent?: ComponentType<{ imageIndex: number }>;
+  hideHeaderWhenZoomed: boolean;
+  hideFooterWhenZoomed: boolean;
 };
 
 const DEFAULT_ANIMATION_TYPE = "fade";
