@@ -16,7 +16,7 @@ const SCREEN_HEIGHT = SCREEN.height;
 
 export const ImageLoading = () => (
   <View style={styles.loading}>
-    <ActivityIndicator size="small" color="#FFF" />
+    <ActivityIndicator size="small" color="#000" />
   </View>
 );
 

@@ -66,6 +66,8 @@ function ImageViewing({
   delayLongPress = DEFAULT_DELAY_LONG_PRESS,
   HeaderComponent,
   FooterComponent,
+  hideHeaderWhenZoomed = true,
+  hideFooterWhenZoomed = true,
 }: Props) {
   const imageList = React.createRef<VirtualizedList<ImageSource>>();
   const [opacity, onRequestCloseEnhanced] = useRequestClose(onRequestClose);
@@ -74,7 +76,7 @@ function ImageViewing({
     headerTransform,
     footerTransform,
     toggleBarsVisible,
-  ] = useAnimatedComponents();
+  ] = useAnimatedComponents(hideHeaderWhenZoomed, hideFooterWhenZoomed);
 
   useEffect(() => {
     if (onImageIndexChange) {

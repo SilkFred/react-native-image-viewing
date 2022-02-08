@@ -14,9 +14,12 @@ const ANIMATION_CONFIG = {
   useNativeDriver: true,
 };
 
-const useAnimatedComponents = () => {
+const useAnimatedComponents = (hideHeaderWhenZoomed: boolean, hideFooterWhenZoomed: boolean) => {
   const headerTranslate = new Animated.ValueXY(INITIAL_POSITION);
   const footerTranslate = new Animated.ValueXY(INITIAL_POSITION);
+
+  const headerHiddenPosition = hideHeaderWhenZoomed ? -300 : 0
+  const footerHiddenPosition = hideFooterWhenZoomed ? 300 : 0
 
   const toggleVisible = (isVisible: boolean) => {
     if (isVisible) {
@@ -28,11 +31,11 @@ const useAnimatedComponents = () => {
       Animated.parallel([
         Animated.timing(headerTranslate.y, {
           ...ANIMATION_CONFIG,
-          toValue: -300,
+          toValue: headerHiddenPosition,
         }),
         Animated.timing(footerTranslate.y, {
           ...ANIMATION_CONFIG,
-          toValue: 300,
+          toValue: footerHiddenPosition,
         }),
       ]).start();
     }
