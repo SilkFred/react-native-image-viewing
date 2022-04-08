@@ -130,6 +130,7 @@ const ImageItem = ({
       <Animated.Image
         {...panHandlers}
         source={imageSrc}
+        fadeDuration={0}
         style={imageStylesWithOpacity}
         onLoad={onLoaded}
       />

@@ -69,7 +69,7 @@ const ImageItem = ({ imageSrc, onZoom, onRequestClose, onLongPress, delayLongPre
         onScroll,
         onScrollEndDrag,
     })}>
-      <Animated.Image {...panHandlers} source={imageSrc} style={imageStylesWithOpacity} onLoad={onLoaded}/>
+      <Animated.Image {...panHandlers} source={imageSrc} fadeDuration={0} style={imageStylesWithOpacity} onLoad={onLoaded}/>
       {(!isLoaded || !imageDimensions) && <ImageLoading />}
     </Animated.ScrollView>);
 };
