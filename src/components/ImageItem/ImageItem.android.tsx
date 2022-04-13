@@ -37,6 +37,7 @@ type Props = {
   delayLongPress: number;
   swipeToCloseEnabled?: boolean;
   doubleTapToZoomEnabled?: boolean;
+  onLoad: () => void;
 };
 
 const ImageItem = ({
@@ -47,6 +48,7 @@ const ImageItem = ({
   delayLongPress,
   swipeToCloseEnabled = true,
   doubleTapToZoomEnabled = true,
+  onLoad,
 }: Props) => {
   const imageContainer = React.createRef<any>();
   const imageDimensions = useImageDimensions(imageSrc);
@@ -54,7 +56,10 @@ const ImageItem = ({
   const scrollValueY = new Animated.Value(0);
   const [isLoaded, setLoadEnd] = useState(false);
 
-  const onLoaded = useCallback(() => setLoadEnd(true), []);
+  const onLoaded = useCallback(() => {
+    setLoadEnd(true)
+    onLoad()
+  }, []);
   const onZoomPerformed = (isZoomed: boolean) => {
     onZoom(isZoomed);
     if (imageContainer?.current) {

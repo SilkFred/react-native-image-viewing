@@ -41,6 +41,7 @@ type Props = {
   delayLongPress: number;
   swipeToCloseEnabled?: boolean;
   doubleTapToZoomEnabled?: boolean;
+  onLoad: () => void;
 };
 
 const ImageItem = ({
@@ -51,6 +52,7 @@ const ImageItem = ({
   delayLongPress,
   swipeToCloseEnabled = true,
   doubleTapToZoomEnabled = true,
+  onLoad,
 }: Props) => {
   const scrollViewRef = useRef<ScrollView>(null);
   const [loaded, setLoaded] = useState(false);
@@ -113,6 +115,11 @@ const ImageItem = ({
     [imageSrc, onLongPress]
   );
 
+  const onImageLoad = () => {
+    setLoaded(true)
+    onLoad()
+  }
+
   return (
     <View>
       <ScrollView
@@ -140,7 +147,7 @@ const ImageItem = ({
           <Animated.Image
             source={imageSrc}
             style={imageStylesWithOpacity}
-            onLoad={() => setLoaded(true)}
+            onLoad={onImageLoad}
           />
         </TouchableWithoutFeedback>
       </ScrollView>

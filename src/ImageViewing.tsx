@@ -44,6 +44,7 @@ type Props = {
   FooterComponent?: ComponentType<{ imageIndex: number }>;
   hideHeaderWhenZoomed: boolean;
   hideFooterWhenZoomed: boolean;
+  onLoad: () => void;
 };
 
 const DEFAULT_ANIMATION_TYPE = "fade";
@@ -70,6 +71,7 @@ function ImageViewing({
   FooterComponent,
   hideHeaderWhenZoomed = true,
   hideFooterWhenZoomed = true,
+  onLoad,
 }: Props) {
   const imageList = React.createRef<VirtualizedList<ImageSource>>();
   const [opacity, onRequestCloseEnhanced] = useRequestClose(onRequestClose);
@@ -143,6 +145,7 @@ function ImageViewing({
           renderItem={({ item: imageSrc }) => (
             <ImageItem
               onZoom={onZoom}
+              onLoad={onLoad}
               imageSrc={imageSrc}
               onRequestClose={onRequestCloseEnhanced}
               onLongPress={onLongPress}

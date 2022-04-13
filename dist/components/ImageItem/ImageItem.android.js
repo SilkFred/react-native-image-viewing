@@ -16,13 +16,16 @@ const SWIPE_CLOSE_VELOCITY = 1.75;
 const SCREEN = Dimensions.get("window");
 const SCREEN_WIDTH = SCREEN.width;
 const SCREEN_HEIGHT = SCREEN.height;
-const ImageItem = ({ imageSrc, onZoom, onRequestClose, onLongPress, delayLongPress, swipeToCloseEnabled = true, doubleTapToZoomEnabled = true, }) => {
+const ImageItem = ({ imageSrc, onZoom, onRequestClose, onLongPress, delayLongPress, swipeToCloseEnabled = true, doubleTapToZoomEnabled = true, onLoad, }) => {
     const imageContainer = React.createRef();
     const imageDimensions = useImageDimensions(imageSrc);
     const [translate, scale] = getImageTransform(imageDimensions, SCREEN);
     const scrollValueY = new Animated.Value(0);
     const [isLoaded, setLoadEnd] = useState(false);
-    const onLoaded = useCallback(() => setLoadEnd(true), []);
+    const onLoaded = useCallback(() => {
+        setLoadEnd(true);
+        onLoad();
+    }, []);
     const onZoomPerformed = (isZoomed) => {
         var _a;
         onZoom(isZoomed);

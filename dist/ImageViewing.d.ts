@@ -30,6 +30,7 @@ declare type Props = {
     }>;
     hideHeaderWhenZoomed: boolean;
     hideFooterWhenZoomed: boolean;
+    onLoad: () => void;
 };
 declare const EnhancedImageViewing: (props: Props) => JSX.Element;
 export default EnhancedImageViewing;
