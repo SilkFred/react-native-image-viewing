@@ -137,6 +137,7 @@ const ImageItem = ({
         source={imageSrc}
         fadeDuration={0}
         style={imageStylesWithOpacity}
+        testID={'zoomImage'}
         onLoad={onLoaded}
       />
       {(!isLoaded || !imageDimensions) && <ImageLoading />}

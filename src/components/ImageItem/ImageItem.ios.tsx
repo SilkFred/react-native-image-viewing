@@ -147,6 +147,7 @@ const ImageItem = ({
           <Animated.Image
             source={imageSrc}
             style={imageStylesWithOpacity}
+            testID={'zoomImage'}
             onLoad={onImageLoad}
           />
         </TouchableWithoutFeedback>

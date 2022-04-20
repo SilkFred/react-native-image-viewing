@@ -66,7 +66,7 @@ const ImageItem = ({ imageSrc, onZoom, onRequestClose, onLongPress, delayLongPre
     })}>
         {(!loaded || !imageDimensions) && <ImageLoading />}
         <TouchableWithoutFeedback onPress={doubleTapToZoomEnabled ? handleDoubleTap : undefined} onLongPress={onLongPressHandler} delayLongPress={delayLongPress}>
-          <Animated.Image source={imageSrc} style={imageStylesWithOpacity} onLoad={onImageLoad}/>
+          <Animated.Image source={imageSrc} style={imageStylesWithOpacity} testID={'zoomImage'} onLoad={onImageLoad}/>
         </TouchableWithoutFeedback>
       </ScrollView>
     </View>);

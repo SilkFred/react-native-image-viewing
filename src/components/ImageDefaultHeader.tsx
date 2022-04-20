@@ -19,6 +19,7 @@ const ImageDefaultHeader = ({ onRequestClose }: Props) => (
   <SafeAreaView style={styles.root}>
     <TouchableOpacity
       style={styles.closeButton}
+      testID={'zoomImageCloseButton'}
       onPress={onRequestClose}
       hitSlop={HIT_SLOP}
     >

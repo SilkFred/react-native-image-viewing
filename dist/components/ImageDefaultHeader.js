@@ -9,7 +9,7 @@ import React from "react";
 import { SafeAreaView, Text, TouchableOpacity, StyleSheet } from "react-native";
 const HIT_SLOP = { top: 16, left: 16, bottom: 16, right: 16 };
 const ImageDefaultHeader = ({ onRequestClose }) => (<SafeAreaView style={styles.root}>
-    <TouchableOpacity style={styles.closeButton} onPress={onRequestClose} hitSlop={HIT_SLOP}>
+    <TouchableOpacity style={styles.closeButton} testID={'zoomImageCloseButton'} onPress={onRequestClose} hitSlop={HIT_SLOP}>
       <Text style={styles.closeText}>✕</Text>
     </TouchableOpacity>
   </SafeAreaView>);
